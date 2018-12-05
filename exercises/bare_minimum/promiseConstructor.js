@@ -4,9 +4,9 @@
  * to the function invocation, while errors should be available in the `catch` block
  */
 
-var fs = require("fs");
-var request = require("request");
-var Promise = require("bluebird");
+var fs = require('fs');
+var request = require('request');
+var Promise = require('bluebird');
 
 // This function should retrieve the first line of the file at `filePath`
 var pluckFirstLineFromFileAsync = function(filePath) {
@@ -19,15 +19,15 @@ var pluckFirstLineFromFileAsync = function(filePath) {
   // });
   // TODO
   let promise = new Promise((resolve, reject) => {
-    fs.readFile(filePath, "utf8", (err, data) => {
+    fs.readFile(filePath, 'utf8', (err, data) => {
       if (err) {
         reject(err);
       } else {
-        resolve(data.split("\n")[0]);
+        resolve(data.split('\n')[0]);
       }
     });
   });
-  promise.then(val => {}).catch(err => {});
+  promise.then(val => val).catch(err => err);
   return promise;
 };
 
